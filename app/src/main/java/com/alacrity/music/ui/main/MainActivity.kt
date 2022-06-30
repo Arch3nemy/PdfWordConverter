@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var mainBus: MainBus
 
+    private var fileExt: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         App.appComponent.inject(this)
@@ -50,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun pickUpFile(ext: String) {
         Timber.d("Picking up a file")
+        fileExt = ext
         val intentType = if (ext == "pdf") "application/pdf" else "*/*"
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = intentType
@@ -71,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             ) else Result.success(
                 File(data.dataString.toString())
             )
-        mainBus.insertValue(MainBusEvent.OnFileUploaded(file))
+        mainBus.insertValue(MainBusEvent.OnFileUploaded(file, fileExt))
         super.onActivityResult(requestCode, resultCode, data)
     }
 

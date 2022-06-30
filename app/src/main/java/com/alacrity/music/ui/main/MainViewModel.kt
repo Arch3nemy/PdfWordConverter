@@ -7,15 +7,13 @@ import com.alacrity.music.ui.main.models.MainDataState
 import com.alacrity.music.ui.main.models.MainEvent
 import com.alacrity.music.ui.main.models.getFile
 import com.alacrity.music.use_cases.ConvertFileUseCase
-import com.alacrity.music.use_cases.LoadFileFromDeviceUseCase
 import com.alacrity.music.util.BaseViewModel
-import com.alacrity.music.util.isValidMsWordFile
+import com.alacrity.music.util.isDocument
 import com.alacrity.music.view_states.MainViewState
 import com.alacrity.music.view_states.MainViewState.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
@@ -150,13 +148,13 @@ class MainViewModel @Inject constructor(
                         it.file.fold(
                                 onSuccess = { file ->
                                     _dataFlow.value = MainDataState.FileLoaded(file)
-                                    if(file.extension != "pdf" && !file.isValidMsWordFile()) {
+                                    if(!file.isDocument()) {
                                         bus.insertValue(MainBusEvent.ToastAlert("Invalid file"))
                                         _viewState.value = MainScreen
                                         return@fold
                                     }
                                     _viewState.value = ConvertationScreen(
-                                        way = if(file.extension == "pdf") "PdfToWord" else "WordToPdf",
+                                        way = if(it.way == "pdf") "PdfToWord" else "WordToPdf",
                                         file = file
                                     )
                                 },

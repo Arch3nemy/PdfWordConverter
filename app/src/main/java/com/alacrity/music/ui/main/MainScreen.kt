@@ -42,7 +42,7 @@ fun MainScreen(
 
             is MainViewState.ConvertationScreen -> {
                 val screen = state as MainViewState.ConvertationScreen
-                val ext = if(screen.way == "WordToPdf") "docx" else "pdf"
+                val ext = if(screen.way == "WordToPdf") "doc" else "pdf"
                 ConvertationScreen(screen.way,
                     fileName = "${screen.file.name}.${screen.file.extension}$ext",
                     onBackClick = { viewModel.enterHomeScreen() },

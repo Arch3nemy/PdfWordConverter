@@ -22,7 +22,7 @@ inline fun <reified T> getScreenSize(): Pair<T, T> {
     }
 }
 
-fun File.isValidMsWordFile(): Boolean {
-    if (extension.contains("doc") || extension.contains("docx")) return true
+fun File.isDocument(): Boolean {
+    if (name.contains("document")) return true
     return false
 }

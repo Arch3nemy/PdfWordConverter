@@ -43,7 +43,7 @@ sealed class MainBusEvent {
 
     data class ToastAlert(val text: String): MainBusEvent()
     data class PickUpFile(val ext: String) : MainBusEvent()
-    data class OnFileUploaded(val file: Result<File>) : MainBusEvent()
+    data class OnFileUploaded(val file: Result<File>, val way: String) : MainBusEvent()
 
     fun isNotEqual(other: MainBusEvent?): Boolean {
         when(this) {
