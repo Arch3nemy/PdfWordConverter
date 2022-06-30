@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.alacrity.music.Destinations.HOME_ROUTE
+import com.alacrity.music.ui.main.MainScreen
 import com.alacrity.music.ui.main.MainViewModel
 
 @Composable

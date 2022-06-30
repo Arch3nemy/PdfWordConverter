@@ -22,8 +22,13 @@ private val Domine = FontFamily(
 val TemplateTypography = Typography(
     defaultFontFamily = Montserrat,
     h1 = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp,
+        letterSpacing = 1.sp
+    ),
+    h2 = TextStyle(
         fontWeight = FontWeight.SemiBold,
-        fontSize = 14.sp,
-        letterSpacing = 0.sp
+        fontSize = 17.sp,
+        letterSpacing = 1.sp
     ),
 )

@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alacrity.music.BaseEvent
 import com.alacrity.music.EventHandler
-import com.alacrity.music.TemplateException
+import com.alacrity.music.exceptions.BaseException
 import com.alacrity.music.view_states.BaseViewState
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,7 +22,7 @@ abstract class BaseViewModel<T : BaseEvent, V: BaseViewState>(defaultViewState: 
      * @return a Result<T> which has getOrNull() -> returns response, exceptionOrNull() -> returns failure if happened
      */
     protected fun <R> launch(dispatcher: CoroutineDispatcher = Dispatchers.IO, logError: String? = null, logSuccess: String? = null, block: suspend () -> R): Result<R> {
-        var result = Result.failure<R>(TemplateException())
+        var result = Result.failure<R>(BaseException())
         viewModelScope.launch(dispatcher) {
              result = withContext(Dispatchers.Default) {
                  try {
@@ -36,8 +36,8 @@ abstract class BaseViewModel<T : BaseEvent, V: BaseViewState>(defaultViewState: 
         return result
     }
 
-    protected fun BaseViewState.logReduce() {
-        Timber.d("Reduce $this")
+    protected fun BaseViewState.logReduce(event: BaseEvent) {
+        Timber.d("Reduce $this with event $event")
     }
 
 }

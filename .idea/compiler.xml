@@ -8,11 +8,16 @@
       <module name="Music.app" target="11" />
       <module name="Music.buildSrc" target="11" />
       <module name="Music.data" target="11" />
+      <module name="PdfWordConverter.buildSrc" target="11" />
+      <module name="PdfWordConverter.buildSrc.main" target="11" />
+      <module name="PdfWordConverter.buildSrc.test" target="11" />
       <module name="Template.app" target="11" />
       <module name="Template.buildSrc" target="11" />
       <module name="Template.buildSrc.main" target="11" />
       <module name="Template.buildSrc.test" target="11" />
       <module name="Template.data" target="11" />
+      <module name="WordPdfConverter.app" target="11" />
+      <module name="WordPdfConverter.data" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

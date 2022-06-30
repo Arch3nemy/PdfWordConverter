@@ -1,5 +1,6 @@
 package com.alacrity.music.theme
 
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 val Red200 = Color(0xfff297a2)
@@ -8,12 +9,20 @@ val Red700 = Color(0xffdd0d3c)
 val Red800 = Color(0xffd00036)
 val Red900 = Color(0xffc20029)
 
-val BrightGray = Color(0xFFF1F1F1)
-val TextGray = Color(0xFF858585)
-val LightPink = Color(0xFFF0E5FF)
-val TransparentWhite = Color(0x25FFFFFF)
-val YellowBorder = Color(0xFFFFD976)
-val Gray = Color(0xFFC4C4C4)
-val Green = Color(0xFF43A247)
-val Red = Color(0xFFE46464)
-val DarkGrayBorder = Color(0xFFCDCDCD)
+val ColorDefaultBackground = Color(0xFF17B284)
+
+val ColorDefaultBackground1 = Color(0xFF004953)
+val ColorDefaultBackground2 = Color(0xFF003A44)
+val ColorDefaultBackground3 = Color(0xFF002B35)
+val ColorDefaultBackground4 = Color(0xFF0F5862)
+
+val gradientBackgroundBrush = Brush.verticalGradient(
+    colors = listOf(
+        ColorDefaultBackground1,
+        ColorDefaultBackground2,
+        ColorDefaultBackground3,
+        ColorDefaultBackground4,
+    )
+)
+
+val ColorButtonDefault = Color(0xFF0F4392)

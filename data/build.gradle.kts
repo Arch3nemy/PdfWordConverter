@@ -33,4 +33,15 @@ android {
 
 dependencies {
     implementation(project(":domain"))
+    async()
+    log()
+}
+
+fun DependencyHandlerScope.async() {
+    implementation(Dependencies.async.coroutinesCore)
+    implementation(Dependencies.async.coroutinesAndroid)
+}
+
+fun DependencyHandlerScope.log() {
+    implementation(Dependencies.other.timber)
 }
